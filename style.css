@@ -1,0 +1,508 @@
+/* 女生专属雾霾粉配色变量不变 */
+:root {
+  --bg: #F6F3F1;
+  --dark-bg: #D8CFCC;
+  --main: #C4B5B5;
+  --sub: #A89999;
+  --title: #625757;
+  --text: #817474;
+  --border: #E5DDDD;
+  --white-mask: rgba(255, 255, 255, 0.18);
+  /* 复刻男士金色装饰色替换为主色 */
+  --gold: var(--main);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Malgun Gothic', Arial, sans-serif;
+  color: var(--title);
+  background: var(--bg);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========== 导航Header 完全复刻男士深色毛玻璃布局 ========== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  color: var(--title);
+  background: rgba(246, 243, 241, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1;
+  font-size: 24px;
+}
+
+.logo small {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav a {
+  opacity: 0.9;
+  color: var(--title);
+}
+
+.nav a:hover {
+  color: var(--gold);
+}
+
+/* ========== Hero首页 左右分栏布局复刻男士 ========== */
+.hero {
+  min-height: 620px;
+  background:
+    linear-gradient(90deg, rgba(246, 243, 241, 0.92), rgba(246, 243, 241, 0.35)),
+    url('../images/hero profile.png') center top / cover no-repeat;
+  color: var(--title);
+  padding-top: 76px;
+}
+
+.hero-overlay {
+  min-height: 544px;
+  padding: 100px 10% 70px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.8fr;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 76px;
+  letter-spacing: -4px;
+  margin-bottom: 15px;
+}
+
+.role {
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.copy {
+  font-size: 21px;
+  margin-bottom: 42px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 34px;
+  background: var(--gold);
+  color: #fff !important;
+  border-radius: 3px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(196, 181, 181, 0.25);
+}
+
+.btn:hover {
+  background: var(--sub);
+}
+
+.hero-points {
+  display: grid;
+  gap: 28px;
+  justify-self: end;
+  width: 270px;
+  /* 水平向右偏移，垂直0不动 */
+  transform: translateX(100px);
+}
+
+.hero-points div {
+  /* 删掉原来的 border-left */
+  padding-left: 18px;
+  text-align: right;
+  /* 给伪元素定位基准 */
+  position: relative;
+}
+
+/* 单独生成左侧竖线，可单独左右移动 */
+.hero-points div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* left 数值越大，竖线越靠右，文字完全不动 */
+  left:80px;
+  width: 2px;
+  background: var(--gold);
+}
+
+.hero-points strong {
+  display: block;
+  color: var(--gold);
+  font-size: 18px;
+}
+
+.hero-points span {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ========== 通用区块基础样式 男士原版间距 ========== */
+.section {
+  padding: 74px 0;
+}
+
+.section-inner {
+  width: min(1120px, 86%);
+  margin: 0 auto;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 42px;
+  letter-spacing: 1px;
+  color: var(--title);
+}
+
+.section h2::after {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin: 9px auto 0;
+  background: var(--gold);
+}
+
+/* ========== About 左右分栏+圆点时间轴 完全复刻男士 ========== */
+.about {
+  background: #fff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 90px;
+  align-items: start;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.about h2 {
+  text-align: left;
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.about h2::after {
+  margin-left: 0;
+}
+
+.about p {
+  max-width: 560px;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.timeline {
+  border-left: 1px solid var(--border);
+  display: grid;
+  gap: 22px;
+  padding-left: 28px;
+}
+
+.timeline div {
+  position: relative;
+}
+
+.timeline div::before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 7px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.timeline b {
+  color: var(--gold);
+  display: block;
+  font-size: 18px;
+}
+
+.timeline span {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ========== Skills 五列卡片、顶部装饰线 男士原版 ========== */
+.skills {
+  background: #fafafa;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.skill-grid article {
+  padding: 24px 14px;
+  border-top: 2px solid var(--gold);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.skill-grid h3, .skill-grid h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--title);
+}
+
+.skill-grid p {
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* ========== Activities 深色区块、图片遮罩悬浮动画 ========== */
+.dark {
+  background: var(--dark-bg);
+  color: var(--title);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+.image-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  background: #000;
+  border: none;
+}
+
+.image-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  opacity: 0.58;
+  transition: 0.3s;
+}
+
+.image-card:hover img {
+  transform: scale(1.06);
+  opacity: 0.72;
+}
+
+.image-card div {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  padding: 0;
+}
+
+.image-card h3 {
+  color: #fff;
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.image-card p {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* ========== Projects 三列白底卡片布局 ========== */
+.projects {
+  background: #fff;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.project-card img {
+  height: 155px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
+
+.project-card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  padding: 0 15px;
+  color: var(--title);
+}
+
+.project-card p {
+  font-size: 14px;
+  padding: 0 15px;
+  color: var(--text);
+}
+
+/* ========== Gallery 六等分网格统一尺寸 ========== */
+.gallery {
+  background: var(--bg);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 3rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  aspect-ratio: 1 / 1;
+}
+
+/* ========== Contact 四格边框卡片居中布局 ========== */
+.contact {
+  background: #fff;
+  text-align: center;
+}
+
+.contact > .section-inner > p {
+  margin-bottom: 36px;
+  color: var(--text);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: unset;
+  margin: 0;
+}
+
+.contact-grid div {
+  padding: 22px 14px;
+  border: 1px solid #eee;
+}
+
+.contact-grid b {
+  display: block;
+  color: var(--gold);
+}
+
+.contact-grid span {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* ========== Footer 深色底部左右布局 ========== */
+.footer {
+  background: var(--dark-bg);
+  color: #fff;
+  padding: 28px 7%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.footer a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 0;
+  display: inline-block;
+}
+
+/* ========== 移动端响应式（男士原版适配规则） ========== */
+@media (max-width: 900px) {
+  .header {
+    height: auto;
+    padding: 18px 5%;
+    align-items: flex-start;
+    gap: 18px;
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .hero {
+    padding-top: 135px;
+  }
+
+  .hero-overlay {
+    grid-template-columns: 1fr;
+    padding: 80px 7%;
+  }
+
+  .hero-text h1 {
+    font-size: 52px;
+  }
+
+  .hero-points {
+    justify-self: start;
+    margin-top: 50px;
+  }
+
+  .about-grid,
+  .card-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
